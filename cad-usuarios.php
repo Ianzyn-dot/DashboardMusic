@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cad-Usuários</title>
+        <link rel="stylesheet" href="index.css">
+
     <link rel="stylesheet" href="cad-usuarios.css">
 </head>
 <body>
+    <div class="dashboard-container">
 
 <?php include 'menu.php';?>
 
@@ -53,7 +56,7 @@
         </section>
 
     </main>
-
+</div>
 <?php include 'footer.php';?>
 
 </body>
