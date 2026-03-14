@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="usuarios.css">
 </head>
 <body>
+
+<?php include 'menu.php';?>
     
     <main>
         <div class="header-content">
@@ -49,6 +51,8 @@
             </table>
         </div>
     </main>
+
+<?php include 'footer.php';?>
 
 </body>
 </html>

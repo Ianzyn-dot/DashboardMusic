@@ -9,20 +9,7 @@
 <body>
 
     <div class="dashboard-container">
-        <nav>
-            <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Playlists</a></li>
-                <li><a href="#">Favoritas</a></li>
-                <li><a href="#">Perfil</a></li>
-
-                <div class="perfil-usuario">
-                    <img src="https://ui-avatars.com/api/?name=Ian+Barrueco&background=008080&color=fff" alt="Avatar">
-                    <span>Ian Barrueco</span>
-                </div>
-
-            </ul>
-        </nav>
+        <?php include 'menu.php';?>
 
         <main>
             <section class="container-cards">
@@ -48,10 +35,6 @@
             </section>
         </main>    
     </div>
-
-<footer>
-    <p>&copy; <?php echo date('Y'); ?> - Desenvolvido por Ian na aula de Web I</p>
-</footer>
 
 </body>
 </html>

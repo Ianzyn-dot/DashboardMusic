@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="cad-usuarios.css">
 </head>
 <body>
+
+<?php include 'menu.php';?>
+
     <main>
 
         <section class="card-form">
@@ -50,6 +53,8 @@
         </section>
 
     </main>
+
+<?php include 'footer.php';?>
 
 </body>
 </html>
