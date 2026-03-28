@@ -1,0 +1,70 @@
+/* Container que centraliza o card na tela */
+.login-container {
+    display: flex;
+    justify-content: center; /* Centraliza  horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Altura total da viewport */
+    background-color: #f4f7f6;
+}
+
+/* Segredo da Verticalização */
+.login-card {
+    background-color: white;
+    padding: 40px; /* Espaçamento interno do card */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra */
+    width: 100%; /* Largura totaç do container pai */
+    max-width: 400px; /* Limita a largura do card para telas maiores */
+}
+
+/* Estilização do título e do ícone */
+.login-header .log-icon {
+    font-size: 50px;
+    color: #004a8d;
+    margin-bottom: 10px;
+}
+
+.login-header h2 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+/* Estilização dos Inputs e o Botão */
+.form-group input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Impede que o padding quebre o layout */
+    margin-bottom: 10px;
+} 
+
+.btn-login {
+    background-color: #004a8d;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background 0.3;
+}
+
+.btn-login:hover {
+    background-color: #003a70;
+}
+
+.erro-alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    margin-bottom: 15px;
+    border: 1px solid #f5c6cb;
+}
