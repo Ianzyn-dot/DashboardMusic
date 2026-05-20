@@ -38,5 +38,17 @@
 
 <?php include 'footer.php';?>
 
+<script>
+    let resposta = prompt("Quantos usuários você quer processar agora ?");
+
+    let quantidade = Number (resposta);
+
+    for (let i = 1; i <= quantidade; i++) {
+        console.log("Processando os dados do usuário " + i + " ...");
+    }
+
+    alert ("Pronto! Aperte F12 para ver o relatório completo no Console.");
+</script>
+
 </body>
 </html>

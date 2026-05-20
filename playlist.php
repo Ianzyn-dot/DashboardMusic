@@ -33,26 +33,22 @@
                         <th>Ações</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tabela-playlists">
                     <tr>
                         <td>01</td>
-                        <td>Playlist Catolica</td>
-                        <td>Mais tranquilo</td>
-                        <td>Igreja</td>
+                        
                         <td><span class="badge ativo">Tocando</span></td>
                         <td><button class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button class="btn-icon"><i class="fa-solid fa-trash"></i></button></td>
+                        <button class="btn-icon"></button></td>
                         
                     </tr>
 
                     <tr>
                         <td>02</td>
-                        <td>Playlist Rock</td>
-                        <td>Mais pesado</td>
-                        <td>Rocks Antigos</td>
+                        
                         <td><span class="badge inativo">Começar</span></td>
                         <td><button class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
-                            <button class="btn-icon"><i class="fa-solid fa-trash"></i></button></td>
+                            <button class="btn-icon"></button></td>
                        
                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
                     </tr>
@@ -66,6 +62,58 @@
 </div>
 
 <?php include 'footer.php';?>
+
+    <script>
+
+function carregarPlaylists() {
+
+    const tabela = document.getElementById('tabela-playlists');
+
+    let listaPlaylists = JSON.parse(localStorage.getItem('playlists')) || [];
+
+    tabela.innerHTML = '';
+
+    listaPlaylists.forEach(function(playlist, index) {
+
+        tabela.innerHTML += `
+
+        <tr>
+            <td>${index + 1}</td>
+            <td>${playlist.nome}</td>
+            <td>${playlist.status}</td>
+
+            <td>
+                <button class="btn-icon" onclick="excluirPlaylist(${index})">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+
+        `;
+
+    });
+
+}
+
+function excluirPlaylist(index) {
+
+    if(confirm('Deseja excluir esta playlist ?')) {
+
+    let listaPlaylists = JSON.parse(localStorage.getItem('playlists')) || [];
+
+    listaPlaylists.splice(index, 1);
+
+    localStorage.setItem('playlists', JSON.stringify(listaPlaylists));
+
+    carregarPlaylists();
+
+    }
+
+}
+
+carregarPlaylists();
+
+</script>
 
 </body>
 </html>

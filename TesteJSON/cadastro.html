@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Cadastro</title>
+</head>
+
+<body>
+
+    <h2>Cadastrar Novo Usuário</h2>
+
+    <input type="text" id="nome" placeholder="Digite o Nome">
+    <input type="email" id="email" placeholder="Digite o E-mail">
+    <button id="btn-salvar">Gravar Dados</button>
+
+
+    <br><br>
+    <a href="lista.html">Ir para a Lista de Usuários</a>
+    
+    <script>
+
+        const btnSalvar = document.getElementById('btn-salvar');
+
+        btnSalvar.addEventListener('click', function() {
+            const inputNome = document.getElementById('nome').value;
+            const inputEmail = document.getElementById('email').value;
+
+            //1. Criamos o objeto JS
+            const novoUsuario = { nome: inputNome, email: inputEmail};
+
+            //2. Lemos o que já existe no armazém (ou criamos uma lista vazia)
+            let lista = JSON.parse(localStorage.getItem('bancoUsuarios')) || [];
+
+            //3. Adicionamos o novo usuário na lista
+            lista.push(novoUsuario);
+
+            //4. Transformamos a listaem Texto JSON e salvamos
+            localStorage.setItem('bancoUsuarios', JSON.stringify(lista));
+
+            alert("Usuário salvo com sucesso!");
+
+            //Limpa os campos para o próximo cadastro
+            document.getElementById('nome').value = '';
+            document.getElementById('email').value = '';
+        });
+
+    </script>
+</body>
+</html>

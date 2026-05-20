@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
+</head>
+<body>
+
+    <h2>Usuário Cadastrados</h2>
+
+    <ul id="lista-tela"></ul> <br>
+    <a href="cadastro.html"> Voltar para o Cadastro</a>
+
+    <script>
+
+        function carregarDados() {
+            const ul = document.getElementById('lista-tela');
+
+            //Lemos os dados convertendo de volta para Array
+            let lista = JSON.parse(localStorage.getItem('bancoUsuarios')) || [];
+
+            ul.innerHTML = ''; //lIMPA A TELA ANTES DE ESCREVER
+
+            //Varremos a lista e criamos os itens (com o botão de excluir)
+            lista.forEach(function(usuario, index) {
+                ul.innerHTML += `
+            <li>
+                <strong>${usuario.nome}</strong> - ${usuario.email}
+                <button onclick="deletar(${index})" style="color: red; margin-left: 10px;">Excluir</button>
+            </li>
+            `;
+        });
+    }
+
+    //a função de exclusão
+    function deletar(index) {
+        if(confirm("Tem certeza que deseja apagar?")) {
+            let lista = JSON.parse(localStorage.getItem('bancoUsuarios'));
+
+            // O splice arranca 1 item da lista baseado na posição (index)
+            lista.splice(index, 1);
+
+            //Salvamos a nova k=lista atualizada e recarregamos a tela
+            localStorage.setItem('bancoUsuarios', JSON.stringify(lista));
+            carregarDados();
+        }
+    }
+
+    //Chama a função para rodar assim que a página abre
+    carregarDados();
+
+    </script>
+    
+</body>
+</html>

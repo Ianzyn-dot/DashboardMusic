@@ -24,7 +24,13 @@
             <form action="processa.php" method="POST">
                 <div class="form-group">
                     <label for="nome">Nome de Usuário</label>
-                    <input type="text" id="nome" name="nome" placeholder="Ex: Ian Barrueco" required>
+                    <input type="text" id="nome" placeholder="Digite o nome" required>
+
+                        <select id="status">
+                            <option value="Ativo">Ativo</option>
+                            <option value="Inativo">Inativo</option>
+                        </select>
+
                 </div>
 
                 <div class="form-row">
@@ -35,7 +41,7 @@
                 </div>
 
                 <div class="form-actions">
-                    <button type="submit" class="btn-save"> <i class="fa-solid fa-floppy-disk"></i>Salvar</button>
+                    <button type="button" class="btn-save" id="btn-salvar"> <i class="fa-solid fa-floppy-disk"></i>Salvar</button>
                     <a href="amigos.php" class="btn-cancel">Cancelar</a>
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
                     
@@ -46,6 +52,38 @@
     </main>
 </div>
 <?php include 'footer.php';?>
+
+    <script>
+
+    const btnSalvar = document.getElementById('btn-salvar');
+
+    btnSalvar.addEventListener('click', function() {
+
+        const nome = document.getElementById('nome').value;
+        const status = document.getElementById('status').value;
+
+        console.log(nome);
+        console.log(status);
+
+        const novoAmigo = {
+            id: Date.now(),
+            nome: nome,
+            status: status
+        };
+
+        let listaAmigos = JSON.parse(localStorage.getItem('amigos')) || [];
+
+        listaAmigos.push(novoAmigo);
+
+        localStorage.setItem('amigos', JSON.stringify(listaAmigos));
+
+        alert('Amigo cadastrado com sucesso!');
+
+        window.location.href = 'amigos.php';
+
+    });
+
+    </script>
 
 </body>
 </html>
